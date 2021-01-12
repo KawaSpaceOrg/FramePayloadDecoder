@@ -3,8 +3,10 @@ from google.cloud import storage
 from payload_decoder import PayloadDecoder
 from es_utils import es
 from process_utils import flatten_json, clean_up_json
+from datetime import datetime
 import sys, pprint, os
 
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= "/service_account.json"
 # Get access to input data frames
 input_file_name = sys.argv[1]
 decoder_project = os.getenv("GOOGLE_PROJECT", "staging-kawa")
@@ -25,9 +27,11 @@ except Exception as e:
 
 flattened_telemetry_JSON = flatten_json(output_telemetry_JSON)
 final_telemetry_JSON = clean_up_json(flattened_telemetry_JSON)
+final_telemetry_JSON['updated_at'] = datetime.utcnow()
 
 try:
    es.index(sys.argv[2], final_telemetry_JSON)
 except Exception as e:
    print(e)
    exit(2)
+
