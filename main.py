@@ -6,7 +6,6 @@ from process_utils import flatten_json, clean_up_json
 from datetime import datetime
 import sys, pprint, os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= "/service_account.json"
 # Get access to input data frames
 input_file_name = sys.argv[1]
 decoder_project = os.getenv("GOOGLE_PROJECT", "staging-kawa")
