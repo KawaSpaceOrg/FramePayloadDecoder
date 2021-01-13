@@ -1,4 +1,5 @@
-import datetime
+import datetime, os
+
 from elasticsearch import Elasticsearch
 es = Elasticsearch(
     [os.getenv('ES_HOST')],
