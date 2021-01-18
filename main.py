@@ -33,7 +33,7 @@ except Exception as e:
 
 flattened_telemetry_JSON = flatten_json(output_telemetry_JSON)
 final_telemetry_JSON = clean_up_json(flattened_telemetry_JSON)
-final_telemetry_JSON['updated_at'] = datetime.utcnow()
+final_telemetry_JSON['_current_time'] = datetime.utcnow()
 
 es_index_name = data['es_index_name']
 try:
