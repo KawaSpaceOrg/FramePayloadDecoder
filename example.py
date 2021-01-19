@@ -4,7 +4,6 @@ import pprint
 
 
 
-
 raw_frame_payload = open('example_frames/telemetry_frame_payload.bin', 'rb').read()
 pprint.pprint(PayloadDecoder.decode(raw_frame_payload))
 
