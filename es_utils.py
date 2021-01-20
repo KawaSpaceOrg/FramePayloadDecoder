@@ -7,4 +7,3 @@ es = Elasticsearch(
     scheme="https",
     port=443,
 )
-

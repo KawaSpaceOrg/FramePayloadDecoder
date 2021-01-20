@@ -2,4 +2,5 @@ bitarray
 typing
 pyserial
 elasticsearch
+python-dateutil
 
