@@ -3,4 +3,6 @@ typing
 pyserial
 elasticsearch
 python-dateutil
+psycopg2
+
 
