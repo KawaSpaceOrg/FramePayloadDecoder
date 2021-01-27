@@ -2,8 +2,8 @@ import os, traceback
 import psycopg2
 
 def new_db_connection():
-    connection_string = "dbname={dbname} user={user} host={host} password={password} port={port}".format(
-    dbname = os.getenv('PG_DB'), user = os.getenv('PG_USER'), host = os.getenv('PG_HOST'),  password = os.getenv('PG_PASS'), port = os.getenv('PG_PORT'))
+    connection_string = "dbname={dbname} user={user} host={host} password={password} port={port} sslmode=disable".format(
+    dbname = os.getenv('PG_DB'), user = os.getenv('PG_USER'), host = "127.0.0.1",  password = os.getenv('PG_PASS'), port = os.getenv('PG_PORT'))
     try:
         db_conn = psycopg2.connect(connection_string)
     except Exception as e:
